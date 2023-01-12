@@ -28,5 +28,6 @@ typedef struct grid{
 	BIOME biome;
 	short visit;
 	short owner;
+	short mov;
 }GRID;
 #endif

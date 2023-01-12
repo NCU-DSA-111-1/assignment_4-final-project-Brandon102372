@@ -7,6 +7,17 @@ void initialize_entity_memory(List * table[]){
 	}
 }
 
+void reset_entity_count(List * table[]){
+	int i=0;
+	for(i=0;i<ENTITY_TABLE_SIZE;i++){
+    	ARMY a= i;
+  		switch(a){
+  			case MILITIA:
+				set_list(table[i],1,1);	
+			break;	
+		}
+	}
+}
 void add_entity(GRID world[][MAX_MAP_SIZE],List * table[],coord target,ARMY type,short team,short health,short armor,short attack,short m_count,short a_count){
 	Entity e;
 	e.position=target;
@@ -24,9 +35,11 @@ void infantry_move(GRID world[][MAX_MAP_SIZE],coord now){
 	coord move[8]={{1,0},{1,1},{0,1},{-1,1},{-1,0},{-1,-1},{0,-1},{1,-1}};
 	int i=0;
 	coord tmp;
+	GRID current;
 	for (i=0;i<8;i++){
 		tmp=plus(now,move[i]);
-		if(world[tmp.y][tmp.x].entity == NULL){
+		current=world[tmp.y][tmp.x];
+		if(current.entity == NULL && current.biome!=OCEAN && current.biome!=WATER){
 			world[tmp.y][tmp.x].visit=1;
 		}
 	}

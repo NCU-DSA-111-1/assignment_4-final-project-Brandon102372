@@ -37,10 +37,10 @@ int main(){
 			world_generator(World);
 			initialize_entity_memory(e_memory);
 			generate_millitia(World,e_memory);
-			/*coord tmp={6,8};
+			coord tmp={6,8};
 			add_entity(World,e_memory,tmp,MILITIA,0,10,0,2,1,1);
 			coord tmp_={7,8};
-			add_entity(World,e_memory,tmp_,MILITIA,1,1,0,2,1,1);*/
+			add_entity(World,e_memory,tmp_,MILITIA,1,1,0,2,1,1);
 			show_all(World);
 			Entity *select_e=NULL;
 			coord now,target;
@@ -56,6 +56,7 @@ int main(){
 						gameover=true;
 						break;
 					case 'n':
+						reset_entity_count(e_memory);
 						cur_team=(cur_team+1)%PLAYER_NUM;
 						break;
 					case 'h'://harvest resources

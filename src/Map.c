@@ -48,8 +48,9 @@ void plain(GRID Oscar[][MAX_MAP_SIZE]){//???????
         set.y = randomnum(0, MAX_MAP_SIZE);
         if(Oscar[set.y][set.x].biome != PLAIN){
             Oscar[set.y][set.x].biome = PLAIN;
+            Oscar[set.y][set.x].mov = PLAIN_MOV;
             i++;
-            for (j=0;j<8;j++){//???????�^?l????
+            for (j=0;j<8;j++){//????????^?l????
             	tmp=plus(set,move[j]);
                 if(Oscar[tmp.y][tmp.x].biome == OCEAN){
                     Oscar[tmp.y][tmp.x].biome = WATER;   
@@ -67,6 +68,7 @@ void mountain(GRID Oscar[][MAX_MAP_SIZE]){//????s
         set.y = randomnum(0, MAX_MAP_SIZE);
         if(Oscar[set.y][set.x].biome == PLAIN){
             Oscar[set.y][set.x].biome = MOUNTAIN;
+            Oscar[set.y][set.x].mov = MOUNTAIN_MOV;
             i++;
         }
     }
@@ -82,6 +84,7 @@ void forest(GRID Oscar[][MAX_MAP_SIZE]){//?????L
         set.y = randomnum(0, MAX_MAP_SIZE);
         if(Oscar[set.y][set.x].biome == PLAIN){
             Oscar[set.y][set.x].biome = FOREST;
+            Oscar[set.y][set.x].mov = FOREST_MOV;
             i++;
         }
     }

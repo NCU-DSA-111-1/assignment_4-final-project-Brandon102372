@@ -13,6 +13,9 @@
 #define FOREST_NUM 16
 #define MOUNTAIN_NUM 16
 #define NOT_WATER_NUM 150
+#define FOREST_MOV 2
+#define MOUNTAIN_MOV 2
+#define PLAIN_MOV 2
 
 void initialize(GRID Oscar[][MAX_MAP_SIZE]);
 void world_generator(GRID Oscar[][MAX_MAP_SIZE]);

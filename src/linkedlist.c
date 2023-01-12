@@ -117,3 +117,14 @@ void destroy(List * list){
   }
   free(list);
 }
+
+void set_list(List * list,short m_count,short a_count){
+  Node * current = list->head;
+  if(list->head == NULL) 
+    return;
+  
+  for(; current != NULL; current = current->next) {
+      	current->data.at_count=m_count;
+    	current->data.mv_count=a_count;	
+  }
+}
