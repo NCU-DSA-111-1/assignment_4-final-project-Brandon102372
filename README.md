@@ -1,10 +1,10 @@
-##How to compile
+#How to compile
 ```
 gcc -o ploytopia Map.c main.c linkedlist.c Entity.c coord.c
 ```
-##How to execute
+#How to execute
 ./ploytopia
-##How to play
+#How to play
 1.輸入要操作的座標
 2.如果選擇自己的兵，輸入"M"會輸出當前士兵可行動的位置
 	2.1.可以移動的位置以"O"表示，輸入對應位置座標士兵就會移動到該地，當前騎士的移動有問題，正在修
