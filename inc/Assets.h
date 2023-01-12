@@ -3,6 +3,7 @@
 #include <stdbool.h>
 #include "../inc/coord.h"
 #define MAX_MAP_SIZE 16
+#define PLAYER_NUM 2
 typedef enum{MILITIA}ARMY;
 static const char *army_texture[]={" M"};
 

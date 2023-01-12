@@ -36,22 +36,27 @@ int main(){
 		case 'n': //New game
 			world_generator(World);
 			initialize_entity_memory(e_memory);
-			coord tmp={6,8};
+			generate_millitia(World,e_memory);
+			/*coord tmp={6,8};
 			add_entity(World,e_memory,tmp,MILITIA,0,10,0,2,1,1);
 			coord tmp_={7,8};
-			add_entity(World,e_memory,tmp_,MILITIA,1,1,0,2,1,1);
+			add_entity(World,e_memory,tmp_,MILITIA,1,1,0,2,1,1);*/
 			show_all(World);
 			Entity *select_e=NULL;
 			coord now,target;
+			short cur_team=0;
 			bool gameover=false;
 			while(!gameover){
-				printf("input options:");
+				printf("player %d input options:",cur_team);
 				fgets(input_str,INPUT_SIZE,stdin);
 				switch(input_str[0]){
 					case 's'://save
 						break;
 					case 'q'://quit
 						gameover=true;
+						break;
+					case 'n':
+						cur_team=(cur_team+1)%PLAYER_NUM;
 						break;
 					case 'h'://harvest resources
 						if(World[now.y][now.x].resource!=NONE){
@@ -63,17 +68,20 @@ int main(){
 						break;
 					case 't'://train army
 						if(World[now.y][now.x].resource!=NONE){
+							printf("Army can only be trained in cities !\n");
+						}else if(World[now.y][now.x].entity==NULL){
+							printf("This grid has already benn occupied !\n");
+						}else if(World[now.y][now.x].owner==cur_team){
+							printf("Train entity: ");
 							fgets(input_str,INPUT_SIZE,stdin);
 							if(input_str[0]=='m'){
-								add_entity(World,e_memory,tmp,MILITIA,0,10,0,2,1,1);
+								add_entity(World,e_memory,now,MILITIA,0,10,0,2,0,0);
 							}
 							show_all(World);
-						}else{
-							printf("Army can only be trained in cities !\n");
 						}
 						break;
 					case 'm'://move army
-						if(World[now.y][now.x].entity!=NULL){
+						if(World[now.y][now.x].entity!=NULL && World[now.y][now.x].entity->team==cur_team){
 							select_e=World[now.y][now.x].entity;
 							bool in_range=false;
 							if(select_e->mv_count>0 || (select_e->at_count>0&&in_range)){

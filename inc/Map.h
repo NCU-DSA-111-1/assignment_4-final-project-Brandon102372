@@ -21,4 +21,5 @@ void mountain(GRID Oscar[][MAX_MAP_SIZE]);
 void forest(GRID Oscar[][MAX_MAP_SIZE]);
 int randomnum(int min, int max);
 void clear_visit(GRID Oscar[][MAX_MAP_SIZE]);
+void tc(GRID Oscar[][MAX_MAP_SIZE]);
 #endif
