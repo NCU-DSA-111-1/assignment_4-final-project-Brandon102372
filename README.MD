@@ -1,14 +1,19 @@
-##How to compile
+# How to use the program:
+1. Enter the number of input bits
+2. Enter training epoch
+3. The program will show training progress and accuracy of 5  epoch
 ```
-gcc -o ploytopia Map.c main.c linkedlist.c Entity.c coord.c
+epoch     train_accuracy     test_accuracy     total_accuracy
+    0           0.541667          0.375000           0.500000
+ 4000           0.958333          0.625000           0.875000
+ 8000           0.958333          0.625000           0.875000
+12000           0.958333          0.625000           0.875000
+16000           0.958333          0.625000           0.875000
+19999/20000(100.0%)
 ```
-##How to execute
-./ploytopia
-##How to play
-1.輸入要操作的座標
-2.如果選擇自己的兵，輸入"M"會輸出當前士兵可行動的位置
-	2.1.可以移動的位置以"O"表示，輸入對應位置座標士兵就會移動到該地，當前騎士的移動有問題，正在修
-	2.2.可以攻擊的敵人以"X"表示，輸入對應位置座標士兵就會對該敵人造成傷害
-3.在無人的己方村莊，輸入"T"可以生兵
-	3.1.輸入"M"可以生成一般步兵
-	3.2.輸入"s"可以生成一般騎士
+* train_accuracy: accuracy of training data
+* test_accuracy: accuracy of testing data
+* total_accuracy: accuracy of all data 
+4. After the training, user can input datas to test the result (string type)
+5. If enter 2, the progrom will end
+6. Call graph.py if you want to draw the learning process of neural network
